@@ -15,7 +15,6 @@ public class ConfigUtil {
     public static final String MIN_LIMIT_ERROR = "value cannot be less than %s";
     public static final String MAX_LIMIT_ERROR = "value cannot be greater than %s";
     public static final String SECTION_EMPTY_ERROR = "section not can be empty";
-    public static final String MATERIAL_NOT_EXISTS = "There is no such material in Minecraft as %s";
 
     private final ConfigLogger logger;
 

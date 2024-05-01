@@ -6,10 +6,15 @@ import com.github.codelomer.configprotection.model.params.impl.ConfigNumberParam
 import com.github.codelomer.configprotection.model.params.impl.ConfigParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigStringParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
+import com.github.codelomer.configprotection.validator.BukkitValidator;
 import com.github.codelomer.configprotection.validator.CollectionValidator;
 import com.github.codelomer.configprotection.validator.PrimitiveValidator;
 import lombok.NonNull;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +23,7 @@ public class ConfigChecker {
     private final ConfigLogger configLogger;
     private final PrimitiveValidator primitiveValidator;
     private final CollectionValidator collectionValidator;
+    private final BukkitValidator bukkitValidator;
 
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName){
         this.configLogger = new ConfigLogger(plugin,configName);
@@ -25,6 +31,7 @@ public class ConfigChecker {
 
         this.primitiveValidator = new PrimitiveValidator(configUtil);
         this.collectionValidator = new CollectionValidator(configUtil);
+        this.bukkitValidator = new BukkitValidator(configUtil);
     }
 
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName, @NonNull List<String> logFormatText){
@@ -33,6 +40,7 @@ public class ConfigChecker {
 
         this.primitiveValidator = new PrimitiveValidator(configUtil);
         this.collectionValidator = new CollectionValidator(configUtil);
+        this.bukkitValidator = new BukkitValidator(configUtil);
     }
 
     public Integer checkInt(@NonNull ConfigNumberParams<Integer> numberParams){
@@ -97,6 +105,41 @@ public class ConfigChecker {
         return collectionValidator.checkEnumList(listParams,enumClass);
     }
 
+    public Material checkMaterial(@NonNull ConfigParams<Material> configParams){
+        return bukkitValidator.checkMaterial(configParams);
+    }
+
+    public List<Material> checkMaterialList(@NonNull ConfigListParams<Material> listParams){
+        return bukkitValidator.checkMaterialList(listParams);
+    }
+
+    public PotionEffectType checkPotionType(@NonNull ConfigParams<PotionEffectType> configParams){
+        return bukkitValidator.checkPotionEffectType(configParams);
+    }
+
+    public List<PotionEffectType> checkPotionTypeList(@NonNull ConfigListParams<PotionEffectType> listParams){
+        return bukkitValidator.checkPotionEffectTypeList(listParams);
+    }
+
+    public World checkWorldByName(@NonNull ConfigParams<World> configParams){
+        return bukkitValidator.checkWordByName(configParams);
+    }
+
+    public List<World> checkWorldListByNames(@NonNull ConfigListParams<World> listParams){
+        return bukkitValidator.checkWordListByNames(listParams);
+    }
+
+    public Enchantment checkEnchantmentName(@NonNull ConfigParams<Enchantment> configParams){
+        return bukkitValidator.checkEnchantmentByName(configParams);
+    }
+
+    public List<Enchantment> checkEnchantmentListByName(@NonNull ConfigListParams<Enchantment> listParams){
+        return bukkitValidator.checkEnchantmentListByNames(listParams);
+    }
+
+    public <V> V checkObject(@NonNull ConfigValidator<V> configValidator){
+        return configValidator.validateObject();
+    }
     public ConfigLogger getConfigLogger() {
         return configLogger;
     }

@@ -34,8 +34,8 @@ public class BukkitValidator {
     public PotionEffectType checkPotionEffectType(@NonNull ConfigParams<PotionEffectType> configParams){
         return validateBukkitObject(configParams,PotionEffectType::getByName);
     }
-    public PotionEffectType checkPotionEffectTypeList(@NonNull ConfigParams<PotionEffectType> configParams){
-        return validateBukkitObject(configParams,PotionEffectType::getByName);
+    public List<PotionEffectType> checkPotionEffectTypeList(@NonNull ConfigListParams<PotionEffectType> configParams){
+        return validateBukkitObjectList(configParams,PotionEffectType::getByName);
     }
 
     public World checkWordByName(@NonNull ConfigParams<World> configParams){
@@ -77,6 +77,8 @@ public class BukkitValidator {
         ConfigurationSection section = listParams.getSection();
         String path = listParams.getPath();
         String fullPath = configUtil.getFullPath(section,path);
+
+        if(!section.isList(path)) return configUtil.logIllegalArgumentErrorAndReturn(listParams,fullPath);
 
         List<String> objectNames = new ArrayList<>(section.getStringList(path));
 

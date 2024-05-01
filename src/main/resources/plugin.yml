@@ -1,0 +1,4 @@
+name: ConfigProtectionAPI
+version: '${project.version}'
+main: com.github.codelomer.configprotection.ConfigProtectionAPI
+api-version: '1.16'

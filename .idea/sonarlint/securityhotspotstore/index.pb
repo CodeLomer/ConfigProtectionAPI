@@ -205,3 +205,6 @@ hsrc/main/java/com/github/codelomer/configprotection/validator/object/impl/Strin
 fsrc/main/java/com/github/codelomer/configprotection/validator/object/impl/EnumObjectCastValidator.java,c\e\ce49bad21859ca331f962d981ca39d7049fb6e30
 ˜
 hsrc/main/java/com/github/codelomer/configprotection/validator/object/impl/BukkitObjectCastValidator.java,4\b\4bce8d3d40e916f7add37ab914410e300005aff6
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302

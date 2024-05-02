@@ -5,7 +5,7 @@
 .settings
 .settings/
 .project
-
+.idea
 # ignore other java files
 bin/
 .classpath

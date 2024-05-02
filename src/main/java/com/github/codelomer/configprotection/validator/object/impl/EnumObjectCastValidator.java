@@ -4,28 +4,33 @@ import com.github.codelomer.configprotection.validator.object.ObjectCastValidato
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 
-public class EnumCastValidator<E extends Enum<E>> implements ObjectCastValidator<E> {
+public class EnumObjectCastValidator<E extends Enum<E>> implements ObjectCastValidator<E,String> {
 
     private final ConfigurationSection section;
     private final String path;
     private final Class<E> enumClass;
 
-    public EnumCastValidator(@NonNull ConfigurationSection section, @NonNull String path, @NonNull Class<E> enumClass){
+    public EnumObjectCastValidator(@NonNull ConfigurationSection section, @NonNull String path, @NonNull Class<E> enumClass){
 
         this.section = section;
         this.path = path;
         this.enumClass = enumClass;
     }
+
     @Override
-    public E cast() {
-        String stringValue = section.getString(path);
-        if(stringValue == null) return null;
+    public String getValue() {
+        return section.getString(path,"null");
+    }
+
+    @Override
+    public E cast(String value) {
         try {
-            return Enum.valueOf(enumClass,stringValue);
+            return Enum.valueOf(enumClass,value);
         }catch (IllegalArgumentException e){
             return null;
         }
     }
+
 
     @Override
     public E validate(@NonNull E value) {

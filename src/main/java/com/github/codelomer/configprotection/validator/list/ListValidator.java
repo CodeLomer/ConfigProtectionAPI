@@ -3,7 +3,6 @@ package com.github.codelomer.configprotection.validator.list;
 import com.github.codelomer.configprotection.api.ConfigValidator;
 import com.github.codelomer.configprotection.model.params.impl.ConfigListParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
-import com.github.codelomer.configprotection.validator.list.ListCastValidator;
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 

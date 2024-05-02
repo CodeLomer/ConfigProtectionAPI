@@ -5,19 +5,26 @@ import com.github.codelomer.configprotection.util.ConfigUtil;
 import com.github.codelomer.configprotection.validator.object.ObjectCastValidator;
 import lombok.NonNull;
 
-public class StringCastValidator implements ObjectCastValidator<String> {
+public class StringObjectCastValidator implements ObjectCastValidator<String,String> {
 
     private final ConfigStringParams stringParams;
     private final ConfigUtil configUtil;
 
-    public StringCastValidator(@NonNull ConfigStringParams stringParams, @NonNull ConfigUtil configUtil){
+    public StringObjectCastValidator(@NonNull ConfigStringParams stringParams, @NonNull ConfigUtil configUtil){
 
         this.stringParams = stringParams;
         this.configUtil = configUtil;
     }
+
     @Override
-    public String cast() {
+    public String getValue() {
         return stringParams.getSection().getString(stringParams.getPath());
+    }
+
+    @Override
+    public String cast(String value) {
+        return value;
+
     }
 
     @Override

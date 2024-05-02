@@ -4,10 +4,10 @@ import com.github.codelomer.configprotection.model.params.impl.ConfigListParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
 import com.github.codelomer.configprotection.validator.list.ListValidator;
+import com.github.codelomer.configprotection.validator.list.impl.EnumListCastValidator;
 import com.github.codelomer.configprotection.validator.object.ObjectValidator;
 import com.github.codelomer.configprotection.validator.list.impl.PrimitiveListCastValidator;
-import com.github.codelomer.configprotection.validator.object.ObjectCastValidator;
-import com.github.codelomer.configprotection.validator.object.impl.EnumCastValidator;
+import com.github.codelomer.configprotection.validator.object.impl.EnumObjectCastValidator;
 import lombok.NonNull;
 
 import java.util.List;
@@ -70,11 +70,15 @@ public class CollectionChecker {
     }
 
     public <E extends Enum<E>> E checkEnum(@NonNull ConfigParams<E> configParams, @NonNull Class<E> enumClass){
-        ObjectCastValidator<E> castValidator = new EnumCastValidator<>(configParams.getSection(),configParams.getPath(),enumClass);
-        return configUtil.validateObject(configParams,new ObjectValidator<>(castValidator,configUtil,configParams));
+        EnumObjectCastValidator<E> castValidator = new EnumObjectCastValidator<>(configParams.getSection(),configParams.getPath(),enumClass);
+        ObjectValidator<E,String> objectValidator = new ObjectValidator<>(castValidator,configUtil,configParams);
+        return configUtil.validateObject(configParams,objectValidator);
     }
 
     public <E extends Enum<E>> List<E> checkEnumList(@NonNull ConfigListParams<E> listParams, @NonNull Class<E> enumClass){
+        EnumObjectCastValidator<E> enumCastValidator = new EnumObjectCastValidator<>(listParams.getSection(),listParams.getPath(),enumClass);
+        EnumListCastValidator<E> castValidator = new EnumListCastValidator<>(listParams,configUtil, enumCastValidator);
+        return configUtil.validateObject(listParams,new ListValidator<>(listParams,configUtil,castValidator));
 
     }
 }

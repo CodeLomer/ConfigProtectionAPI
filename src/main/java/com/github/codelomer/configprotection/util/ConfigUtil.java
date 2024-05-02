@@ -1,5 +1,6 @@
 package com.github.codelomer.configprotection.util;
 
+import com.github.codelomer.configprotection.api.ConfigValidator;
 import com.github.codelomer.configprotection.logger.ConfigLogger;
 import com.github.codelomer.configprotection.model.FilterCondition;
 import com.github.codelomer.configprotection.model.params.AbstractConfigParams;
@@ -47,19 +48,27 @@ public class ConfigUtil {
         return hasError;
     }
 
-    public <V,C> boolean notFoundPath(@NonNull AbstractConfigParams<V,C> configParams){
-        ConfigurationSection section = configParams.getSection();
-        String path = configParams.getPath();
-        if(!section.contains(path)){
-            logError(NOT_FOUND_PATH, configParams.getNotFoundPathError(), Objects.requireNonNull(section.getCurrentPath()), configParams.isLogErrors(), path);
-            return true;
-        }
-        return false;
-    }
-
     public <V,C> V logIllegalArgumentErrorAndReturn(@NonNull AbstractConfigParams<V,C> abstractConfigParams, @NonNull String fullPath){
         logError(ConfigUtil.ILLEGAL_ARGUMENT_IN_SECTION, abstractConfigParams.getIllegalArgumentInSectionError(),fullPath,abstractConfigParams.isLogErrors());
         return abstractConfigParams.getDef();
+    }
+
+    public <V,C> V validateObject(@NonNull AbstractConfigParams<V,C> configParams, @NonNull ConfigValidator<V> configValidator){
+        ConfigurationSection section = configParams.getSection();
+        String path = configParams.getPath();
+        V def = configParams.getDef();
+
+        if(!section.contains(path)){
+            logError(NOT_FOUND_PATH, configParams.getNotFoundPathError(), Objects.requireNonNull(section.getCurrentPath()), configParams.isLogErrors(), path);
+            return def;
+        }
+        V value = configValidator.validate();
+        if(value == null) return null;
+
+        String fullPath = getFullPath(section,path);
+        if(filtered(configParams.getCustomConditions(),value,fullPath,configParams.isLogErrors())) return def;
+        return value;
+
     }
 
 }

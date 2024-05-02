@@ -2,6 +2,7 @@ package com.github.codelomer.configprotection.validator.number.impl;
 
 import com.github.codelomer.configprotection.validator.number.NumberLimitValidator;
 import lombok.NonNull;
+import org.bukkit.configuration.ConfigurationSection;
 
 public class LongLimitValidator implements NumberLimitValidator<Long> {
     private final Long minLimit;
@@ -21,4 +22,11 @@ public class LongLimitValidator implements NumberLimitValidator<Long> {
     public boolean isMore(@NonNull Long value) {
         return maxLimit != null && value > maxLimit;
     }
+
+    @Override
+    public Long getValue(@NonNull ConfigurationSection section, @NonNull String path) {
+        return section.getLong(path);
+    }
+
+
 }

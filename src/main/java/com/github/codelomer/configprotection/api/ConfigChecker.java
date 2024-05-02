@@ -1,14 +1,14 @@
 package com.github.codelomer.configprotection.api;
 
+import com.github.codelomer.configprotection.checker.BukkitChecker;
+import com.github.codelomer.configprotection.checker.CollectionChecker;
+import com.github.codelomer.configprotection.checker.PrimitiveChecker;
 import com.github.codelomer.configprotection.logger.ConfigLogger;
 import com.github.codelomer.configprotection.model.params.impl.ConfigListParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigNumberParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigStringParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
-import com.github.codelomer.configprotection.validator.BukkitValidator;
-import com.github.codelomer.configprotection.validator.CollectionValidator;
-import com.github.codelomer.configprotection.validator.PrimitiveValidator;
 import lombok.NonNull;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -21,26 +21,26 @@ import java.util.Map;
 
 public class ConfigChecker {
     private final ConfigLogger configLogger;
-    private final PrimitiveValidator primitiveValidator;
-    private final CollectionValidator collectionValidator;
-    private final BukkitValidator bukkitValidator;
+    private final PrimitiveChecker primitiveValidator;
+    private final CollectionChecker collectionValidator;
+    private final BukkitChecker bukkitValidator;
 
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName){
         this.configLogger = new ConfigLogger(plugin,configName);
         ConfigUtil configUtil = new ConfigUtil(configLogger);
 
-        this.primitiveValidator = new PrimitiveValidator(configUtil);
-        this.collectionValidator = new CollectionValidator(configUtil);
-        this.bukkitValidator = new BukkitValidator(configUtil);
+        this.primitiveValidator = new PrimitiveChecker(configUtil);
+        this.collectionValidator = new CollectionChecker(configUtil);
+        this.bukkitValidator = new BukkitChecker(configUtil);
     }
 
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName, @NonNull List<String> logFormatText){
         this.configLogger = new ConfigLogger(plugin,logFormatText,configName);
         ConfigUtil configUtil = new ConfigUtil(configLogger);
 
-        this.primitiveValidator = new PrimitiveValidator(configUtil);
-        this.collectionValidator = new CollectionValidator(configUtil);
-        this.bukkitValidator = new BukkitValidator(configUtil);
+        this.primitiveValidator = new PrimitiveChecker(configUtil);
+        this.collectionValidator = new CollectionChecker(configUtil);
+        this.bukkitValidator = new BukkitChecker(configUtil);
     }
 
     public Integer checkInt(@NonNull ConfigNumberParams<Integer> numberParams){
@@ -135,10 +135,6 @@ public class ConfigChecker {
 
     public List<Enchantment> checkEnchantmentListByName(@NonNull ConfigListParams<Enchantment> listParams){
         return bukkitValidator.checkEnchantmentListByNames(listParams);
-    }
-
-    public <V> V checkObject(@NonNull ConfigValidator<V> configValidator){
-        return configValidator.validateObject();
     }
     public ConfigLogger getConfigLogger() {
         return configLogger;

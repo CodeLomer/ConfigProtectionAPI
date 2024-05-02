@@ -1,0 +1,5 @@
+Int-path: 5
+Double-path: 5.0
+Long-path: 3000
+String-path: "text"
+Boolean-path: true

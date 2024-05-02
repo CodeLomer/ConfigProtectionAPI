@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ConfigProtectionAPI:jar2">
+    <output-path>$PROJECT_DIR$/../../../локальные сервера/сервер 1.12.2/plugins</output-path>
+    <root id="archive" name="ConfigProtectionAPI.jar">
+      <element id="module-output" name="ConfigProtectionAPI" />
+    </root>
+  </artifact>
+</component>

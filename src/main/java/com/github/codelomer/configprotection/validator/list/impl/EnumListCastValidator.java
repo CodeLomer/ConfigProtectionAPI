@@ -29,10 +29,11 @@ public class EnumListCastValidator<V extends Enum<V>> implements ListCastValidat
     @Override
     public List<V> validateList(@NonNull List<String> primitiveList) {
         List<V> enumList = new ArrayList<>();
+        String fullPath = configUtil.getFullPath(listParams.getSection(),listParams.getPath());
         primitiveList.forEach(name ->{
             V value = enumCastValidator.cast(name);
             if(value == null){
-                configUtil.logIllegalArgumentErrorAndReturn(listParams,configUtil.getFullPath(listParams.getSection(),listParams.getPath()));
+                configUtil.logIllegalArgumentErrorAndReturn(listParams,fullPath);
                 return;
             }
             enumList.add(value);

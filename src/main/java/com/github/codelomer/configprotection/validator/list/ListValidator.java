@@ -29,9 +29,12 @@ public class ListValidator<V,P> implements ConfigValidator<List<V>> {
 
         if(!section.isList(path)) return configUtil.logIllegalArgumentErrorAndReturn(listParams,fullPath);
 
-        List<V> def = new ArrayList<>(listParams.getDef());
 
-        List<P> primitiveList = new ArrayList<>(listCastValidator.getPrimitiveList());
+        List<P> primitiveList = listCastValidator.getPrimitiveList();
+
+        if(primitiveList == null) return configUtil.logIllegalArgumentErrorAndReturn(listParams,fullPath);
+
+        List<V> def = new ArrayList<>(listParams.getDef());
 
         if(!listParams.isCanBeEmpty() && primitiveList.isEmpty()){
             configUtil.logError(ConfigUtil.SECTION_EMPTY_ERROR, listParams.getEmptyErrorText(),fullPath,listParams.isLogErrors());

@@ -139,6 +139,7 @@ public class ConfigChecker {
 
     public <V> V validateObject(@NonNull ConfigValidator<V> validator){
         return validator.validate();
+
     }
     public ConfigLogger getConfigLogger() {
         return configLogger;

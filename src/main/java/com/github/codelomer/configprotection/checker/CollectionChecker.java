@@ -5,8 +5,10 @@ import com.github.codelomer.configprotection.model.params.impl.ConfigParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
 import com.github.codelomer.configprotection.validator.list.ListValidator;
 import com.github.codelomer.configprotection.validator.list.impl.EnumListCastValidator;
-import com.github.codelomer.configprotection.validator.object.ObjectValidator;
+import com.github.codelomer.configprotection.validator.list.impl.ObjectListCastValidator;
+import com.github.codelomer.configprotection.validator.list.impl.ObjectListMapCastValidator;
 import com.github.codelomer.configprotection.validator.list.impl.PrimitiveListCastValidator;
+import com.github.codelomer.configprotection.validator.object.ObjectValidator;
 import com.github.codelomer.configprotection.validator.object.impl.EnumObjectCastValidator;
 import lombok.NonNull;
 
@@ -61,12 +63,15 @@ public class CollectionChecker {
     }
 
     public <V> List<V> checkList(@NonNull ConfigListParams<V> configListParams, @NonNull Class<V> clazz){
-
+        ObjectListCastValidator<V> objectListCastValidator = new ObjectListCastValidator<>(configListParams,configUtil,clazz);
+        ListValidator<V,?> listValidator = new ListValidator<>(configListParams,configUtil,objectListCastValidator);
+        return configUtil.validateObject(configListParams,listValidator);
     }
 
-
-    @SuppressWarnings("unchecked")
     public  <K,V> List<Map<K,V>> checkMapList(@NonNull ConfigListParams<Map<K,V>> listParams, @NonNull Class<K> keyClass, @NonNull Class<V> valueClass) {
+        ObjectListMapCastValidator<K,V> objectListMapCastValidator = new ObjectListMapCastValidator<>(listParams,configUtil,keyClass,valueClass);
+        ListValidator<Map<K,V>,Map<?,?>> listValidator = new ListValidator<>(listParams,configUtil,objectListMapCastValidator);
+        return configUtil.validateObject(listParams,listValidator);
     }
 
     public <E extends Enum<E>> E checkEnum(@NonNull ConfigParams<E> configParams, @NonNull Class<E> enumClass){

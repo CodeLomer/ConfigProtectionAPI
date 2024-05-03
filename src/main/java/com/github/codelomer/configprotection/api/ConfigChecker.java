@@ -129,7 +129,7 @@ public class ConfigChecker {
         return bukkitValidator.checkWordListByNames(listParams);
     }
 
-    public Enchantment checkEnchantmentName(@NonNull ConfigParams<Enchantment> configParams){
+    public Enchantment checkEnchantmentByName(@NonNull ConfigParams<Enchantment> configParams){
         return bukkitValidator.checkEnchantmentByName(configParams);
     }
 

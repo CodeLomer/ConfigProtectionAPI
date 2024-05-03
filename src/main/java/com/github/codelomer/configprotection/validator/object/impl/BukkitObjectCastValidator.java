@@ -4,6 +4,7 @@ import com.github.codelomer.configprotection.validator.object.ObjectCastValidato
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 
+import java.util.Locale;
 import java.util.function.Function;
 
 public class BukkitObjectCastValidator<V> implements ObjectCastValidator<V,String> {
@@ -26,7 +27,7 @@ public class BukkitObjectCastValidator<V> implements ObjectCastValidator<V,Strin
     @Override
     public V cast(String value) {
         if(value == null) return null;
-        return castObjectFunction.apply(value);
+        return castObjectFunction.apply(value.toUpperCase(Locale.ENGLISH));
     }
 
     @Override

@@ -13,4 +13,8 @@ public class ConfigParams<V> extends AbstractConfigParams<V,ConfigParams<V>> {
     protected ConfigParams<V> getThis() {
         return this;
     }
+
+    public static <V> ConfigParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path){
+        return new ConfigParams<>(section,path);
+    }
 }

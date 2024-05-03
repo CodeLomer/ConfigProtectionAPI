@@ -4,6 +4,8 @@ import com.github.codelomer.configprotection.validator.object.ObjectCastValidato
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 
+import java.util.Locale;
+
 public class EnumObjectCastValidator<E extends Enum<E>> implements ObjectCastValidator<E,String> {
 
     private final ConfigurationSection section;
@@ -24,8 +26,9 @@ public class EnumObjectCastValidator<E extends Enum<E>> implements ObjectCastVal
 
     @Override
     public E cast(String value) {
+        if(value == null) return null;
         try {
-            return Enum.valueOf(enumClass,value);
+            return Enum.valueOf(enumClass,value.toUpperCase(Locale.ENGLISH));
         }catch (IllegalArgumentException e){
             return null;
         }

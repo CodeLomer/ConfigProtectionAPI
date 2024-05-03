@@ -20,7 +20,7 @@ public abstract class AbstractConfigParams<V,C> {
 
     protected String notFoundPathError;
     protected String illegalArgumentInSectionError;
-    protected boolean logErrors;
+    protected boolean logErrors = true;
 
     protected AbstractConfigParams(@NonNull ConfigurationSection section, @NonNull String path) {
         this.section = section;

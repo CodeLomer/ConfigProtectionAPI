@@ -25,6 +25,7 @@ public class BukkitObjectCastValidator<V> implements ObjectCastValidator<V,Strin
 
     @Override
     public V cast(String value) {
+        if(value == null) return null;
         return castObjectFunction.apply(value);
     }
 

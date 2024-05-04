@@ -40,8 +40,8 @@ public class ConfigChecker {
 
     /**
      * Constructs a ConfigChecker object.
-     * @param plugin - The JavaPlugin instance associated with the API.
-     * @param configName - The name of the configuration file to interact with during validation.
+     * @param plugin The JavaPlugin instance associated with the API.
+     * @param configName The name of the configuration file to interact with during validation.
      */
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName){
         this.configLogger = new ConfigLogger(plugin,configName);
@@ -54,9 +54,9 @@ public class ConfigChecker {
 
     /**
      * Constructs a ConfigChecker object with custom log format text.
-     * @param plugin - The JavaPlugin instance associated with the API.
-     * @param configName - The name of the configuration file to interact with during validation.
-     * @param logFormatText - The default text format for error log output.
+     * @param plugin The JavaPlugin instance associated with the API.
+     * @param configName The name of the configuration file to interact with during validation.
+     * @param logFormatText The default text format for error log output.
      */
     public ConfigChecker(@NonNull JavaPlugin plugin, @NonNull String configName, @NonNull List<String> logFormatText){
         this.configLogger = new ConfigLogger(plugin,logFormatText,configName);
@@ -69,7 +69,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves an integer value from the configuration.
-     * @param numberParams - An object storing data about the validating integer.
+     * @param numberParams An object storing data about the validating integer.
      * @return The validated integer value, or null if the validation fails and no default value is set.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#setDef(Object)
      */
@@ -78,7 +78,7 @@ public class ConfigChecker {
     }
     /**
      * Validates and retrieves a double value from the configuration.
-     * @param numberParams - An object storing data about the validating double.
+     * @param numberParams An object storing data about the validating double.
      * @return The validated double value, or null if the validation fails and no default value is set.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#setDef(Object)
      */
@@ -88,7 +88,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a long value from the configuration.
-     * @param numberParams - An object storing data about the validating long.
+     * @param numberParams An object storing data about the validating long.
      * @return The validated long value, or null if the validation fails and no default value is set.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#setDef(Object)
      */
@@ -98,7 +98,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a string value from the configuration.
-     * @param stringParams - An object storing data about the validating string.
+     * @param stringParams An object storing data about the validating string.
      * @return The validated string value, or null if the validation fails and no default value is set.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#setDef(Object)
      */
@@ -108,7 +108,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of strings from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -118,7 +118,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of integer from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -128,7 +128,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of Double from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -139,7 +139,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of long from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -150,7 +150,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of float from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -161,7 +161,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of byte from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -172,7 +172,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of character from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -183,7 +183,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of short from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -194,7 +194,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of boolean from the configuration.
-     * @param listParams - An object storing data about the validating string list.
+     * @param listParams An object storing data about the validating string list.
      * @return A list of validated string objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -205,9 +205,9 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of objects from the configuration.
-     * @param <V> - The type of objects in the list.
-     * @param listParams - An object storing data about the validating object list.
-     * @param clazz - The class type of the objects in the list.
+     * @param <V> The type of objects in the list.
+     * @param listParams An object storing data about the validating object list.
+     * @param clazz The class type of the objects in the list.
      * @return A list of validated objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -217,11 +217,11 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of map objects from the configuration.
-     * @param <K> - The type of keys in the map.
-     * @param <V> - The type of values in the map.
-     * @param listParams - An object storing data about the validating map list.
-     * @param keyClass - The class type of keys in the map.
-     * @param valueClass - The class type of values in the map.
+     * @param <K> The type of keys in the map.
+     * @param <V> The type of values in the map.
+     * @param listParams An object storing data about the validating map list.
+     * @param keyClass The class type of keys in the map.
+     * @param valueClass The class type of values in the map.
      * @return A list of validated map objects, or the default value if the specified path from the section was not found or custom conditions were not validated.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#filter(Predicate)
      */
@@ -231,9 +231,9 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves an enum value from the configuration.
-     * @param <E> - The type of enum.
-     * @param configParams - An object storing data about the validating enum.
-     * @param enumClass - The class type of the enum.
+     * @param <E> The type of enum.
+     * @param configParams An object storing data about the validating enum.
+     * @param enumClass The class type of the enum.
      * @return The validated enum value, or null if the validation fails and no default value is set.
      * @see com.github.codelomer.configprotection.model.params.AbstractConfigParams#setDef(Object)
      */
@@ -244,9 +244,9 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of enum values from the configuration.
-     * @param <E> - The type of enum.
-     * @param listParams - An object storing data about the validating enum list.
-     * @param enumClass - The class type of the enum.
+     * @param <E> The type of enum.
+     * @param listParams An object storing data about the validating enum list.
+     * @param enumClass The class type of the enum.
      * @return A list of validated enum values, or the default value if the specified path from the section was not found or custom conditions were not validated.
      */
 
@@ -256,7 +256,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a Material value from the configuration.
-     * @param configParams - An object storing data about the validating Material.
+     * @param configParams An object storing data about the validating Material.
      * @return The validated Material value, or null if the validation fails and no default value is set.
      */
 
@@ -266,7 +266,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of Material values from the configuration.
-     * @param listParams - An object storing data about the validating Material list.
+     * @param listParams An object storing data about the validating Material list.
      * @return A list of validated Material values, or the default value if the specified path from the section was not found or custom conditions were not validated.
      */
 
@@ -276,7 +276,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a PotionEffectType value from the configuration.
-     * @param configParams - An object storing data about the validating PotionEffectType.
+     * @param configParams An object storing data about the validating PotionEffectType.
      * @return The validated PotionEffectType value, or null if the validation fails and no default value is set.
      */
 
@@ -286,7 +286,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of PotionEffectType values from the configuration.
-     * @param listParams - An object storing data about the validating PotionEffectType list.
+     * @param listParams An object storing data about the validating PotionEffectType list.
      * @return A list of validated PotionEffectType values, or the default value if the specified path from the section was not found or custom conditions were not validated.
      */
 
@@ -296,7 +296,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a World value from the configuration by name.
-     * @param configParams - An object storing data about the validating World.
+     * @param configParams An object storing data about the validating World.
      * @return The validated World value, or null if the validation fails and no default value is set.
      */
     public World checkWorldByName(@NonNull ConfigParams<World> configParams){
@@ -305,7 +305,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of World values from the configuration by names.
-     * @param listParams - An object storing data about the validating World list.
+     * @param listParams An object storing data about the validating World list.
      * @return A list of validated World values, or the default value if the specified path from the section was not found or custom conditions were not validated.
      */
 
@@ -315,7 +315,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves an Enchantment value from the configuration by name.
-     * @param configParams - An object storing data about the validating Enchantment.
+     * @param configParams An object storing data about the validating Enchantment.
      * @return The validated Enchantment value, or null if the validation fails and no default value is set.
      */
 
@@ -325,7 +325,7 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves a list of Enchantment values from the configuration by names.
-     * @param listParams - An object storing data about the validating Enchantment list.
+     * @param listParams An object storing data about the validating Enchantment list.
      * @return A list of validated Enchantment values, or the default value if the specified path from the section was not found or custom conditions were not validated.
      */
 
@@ -335,8 +335,8 @@ public class ConfigChecker {
 
     /**
      * Validates and retrieves an object from the configuration.
-     * @param <V> - The type of object.
-     * @param validator - custom validator
+     * @param <V> The type of object.
+     * @param validator custom validator
      * @return The validated object, or null if the validation fails.
      */
     public <V> V validateObject(@NonNull ConfigValidator<V> validator){

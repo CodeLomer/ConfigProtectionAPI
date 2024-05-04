@@ -12,6 +12,7 @@ import org.bukkit.configuration.ConfigurationSection;
 
 public class ConfigParams<V> extends AbstractConfigParams<V,ConfigParams<V>> {
 
+
     protected ConfigParams(@NonNull ConfigurationSection section, @NonNull String path) {
         super(section, path);
     }

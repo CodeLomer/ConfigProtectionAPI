@@ -18,6 +18,7 @@ public class ConfigNumberParams<V extends Number> extends AbstractConfigParams<V
     private String minLimitError;
     private String maxLimitError;
 
+
     protected ConfigNumberParams(@NonNull ConfigurationSection section, @NonNull String path) {
         super(section, path);
     }

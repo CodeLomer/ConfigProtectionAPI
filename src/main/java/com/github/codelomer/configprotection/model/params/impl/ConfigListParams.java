@@ -62,6 +62,7 @@ public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigList
      * @param emptyErrorText the error message to display if the list is empty
      * @return the current instance for method chaining
      */
+
     public ConfigListParams<V> canBeEmpty(boolean canBeEmpty, @NonNull String emptyErrorText) {
         this.canBeEmpty = canBeEmpty;
         this.emptyErrorText = emptyErrorText;

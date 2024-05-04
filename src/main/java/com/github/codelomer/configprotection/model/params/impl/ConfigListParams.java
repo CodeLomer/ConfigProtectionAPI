@@ -6,6 +6,13 @@ import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.List;
+
+/**
+ * Represents the parameters for validating and retrieving a list of values from a configuration section.
+ *
+ * @param <V> the type of values in the list
+ */
+
 @Getter
 public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigListParams<V>> {
 
@@ -15,23 +22,49 @@ public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigList
         super(section, path);
     }
 
+    /**
+     * Overrides the abstract method to return the current instance.
+     *
+     * @return the current instance
+     */
     @Override
     protected ConfigListParams<V> getThis() {
         return this;
     }
 
-    public static <V> ConfigListParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path){
-        return new ConfigListParams<>(section,path);
+    /**
+     * Static method to create a new instance of ConfigListParams.
+     *
+     * @param section the configuration section to interact with
+     * @param path    the path within the configuration section
+     * @param <V>     the type of values in the list
+     * @return a new instance of ConfigListParams
+     */
+    public static <V> ConfigListParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path) {
+        return new ConfigListParams<>(section, path);
     }
 
-    public ConfigListParams<V> canBeEmpty(boolean canBeEmpty){
+    /**
+     * Sets whether the list can be empty.
+     *
+     * @param canBeEmpty flag indicating whether the list can be empty
+     * @return the current instance for method chaining
+     */
+    public ConfigListParams<V> canBeEmpty(boolean canBeEmpty) {
         this.canBeEmpty = canBeEmpty;
         return this;
     }
 
-    public ConfigListParams<V> canBeEmpty(boolean canBeEmpty, @NonNull String errorText){
+    /**
+     * Sets whether the list can be empty along with a custom error message if it is empty.
+     *
+     * @param canBeEmpty   flag indicating whether the list can be empty
+     * @param emptyErrorText the error message to display if the list is empty
+     * @return the current instance for method chaining
+     */
+    public ConfigListParams<V> canBeEmpty(boolean canBeEmpty, @NonNull String emptyErrorText) {
         this.canBeEmpty = canBeEmpty;
-        this.emptyErrorText = errorText;
+        this.emptyErrorText = emptyErrorText;
         return this;
     }
 }

@@ -7,6 +7,7 @@ ConfigProtectionAPI is designed to make it easier to validate data from plugin f
 
 ## Support
 - [Issue Tracker](https://github.com/CodeLomer/ConfigProtectionAPI/issues)
+- [VK group](https://vk.com/plugincrafting)
 
 ## Quick links
 - [VK group](https://vk.com/plugincrafting)

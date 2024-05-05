@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class ConfigUtil {
-    public static final String NOT_FOUND_PATH = "there is no such path as '%s' in the config";
     public static final String ILLEGAL_ARGUMENT_IN_SECTION = "invalid value in section";
     public static final String MIN_LIMIT_ERROR = "value cannot be less than %s";
     public static final String MAX_LIMIT_ERROR = "value cannot be greater than %s";
@@ -54,19 +53,10 @@ public class ConfigUtil {
     }
 
     public <V,C> V validateObject(@NonNull AbstractConfigParams<V,C> configParams, @NonNull ConfigValidator<V> configValidator){
-        ConfigurationSection section = configParams.getSection();
-        String path = configParams.getPath();
-        V def = configParams.getDef();
-
-        if(!section.contains(path)){
-            logError(NOT_FOUND_PATH, configParams.getNotFoundPathError(), Objects.requireNonNull(section.getCurrentPath()), configParams.isLogErrors(), path);
-            return def;
-        }
         V value = configValidator.validate();
         if(value == null) return null;
-
-        String fullPath = getFullPath(section,path);
-        if(filtered(configParams.getCustomConditions(),value,fullPath,configParams.isLogErrors())) return def;
+        String fullPath = getFullPath(configParams.getSection(), configParams.getPath());
+        if(filtered(configParams.getCustomConditions(),value,fullPath,configParams.isLogErrors())) return configParams.getDef();
         return value;
 
     }

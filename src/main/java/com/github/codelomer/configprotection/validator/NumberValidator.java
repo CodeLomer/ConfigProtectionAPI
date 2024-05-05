@@ -1,8 +1,9 @@
-package com.github.codelomer.configprotection.validator.number;
+package com.github.codelomer.configprotection.validator;
 
 import com.github.codelomer.configprotection.api.ConfigValidator;
 import com.github.codelomer.configprotection.model.params.impl.ConfigNumberParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
+import com.github.codelomer.configprotection.validator.number.NumberLimitValidator;
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 

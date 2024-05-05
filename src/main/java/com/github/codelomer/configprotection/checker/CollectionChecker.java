@@ -3,12 +3,12 @@ package com.github.codelomer.configprotection.checker;
 import com.github.codelomer.configprotection.model.params.impl.ConfigListParams;
 import com.github.codelomer.configprotection.model.params.impl.ConfigParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
-import com.github.codelomer.configprotection.validator.list.ListValidator;
+import com.github.codelomer.configprotection.validator.ListValidator;
 import com.github.codelomer.configprotection.validator.list.impl.EnumListCastValidator;
 import com.github.codelomer.configprotection.validator.list.impl.ObjectListCastValidator;
 import com.github.codelomer.configprotection.validator.list.impl.ObjectListMapCastValidator;
 import com.github.codelomer.configprotection.validator.list.impl.PrimitiveListCastValidator;
-import com.github.codelomer.configprotection.validator.object.ObjectValidator;
+import com.github.codelomer.configprotection.validator.ObjectValidator;
 import com.github.codelomer.configprotection.validator.object.impl.EnumObjectCastValidator;
 import lombok.NonNull;
 

@@ -1,9 +1,10 @@
-package com.github.codelomer.configprotection.validator.object;
+package com.github.codelomer.configprotection.validator;
 
 import com.github.codelomer.configprotection.api.ConfigValidator;
 import com.github.codelomer.configprotection.model.params.AbstractConfigParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
 
+import com.github.codelomer.configprotection.validator.object.ObjectCastValidator;
 import lombok.NonNull;
 
 public class ObjectValidator<V,P> implements ConfigValidator<V> {

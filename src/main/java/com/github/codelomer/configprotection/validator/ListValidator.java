@@ -1,12 +1,12 @@
-package com.github.codelomer.configprotection.validator.list;
+package com.github.codelomer.configprotection.validator;
 
 import com.github.codelomer.configprotection.api.ConfigValidator;
 import com.github.codelomer.configprotection.model.params.impl.ConfigListParams;
 import com.github.codelomer.configprotection.util.ConfigUtil;
+import com.github.codelomer.configprotection.validator.list.ListCastValidator;
 import lombok.NonNull;
 import org.bukkit.configuration.ConfigurationSection;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListValidator<V,P> implements ConfigValidator<List<V>> {
@@ -34,13 +34,13 @@ public class ListValidator<V,P> implements ConfigValidator<List<V>> {
 
         if(primitiveList == null) return configUtil.logIllegalArgumentErrorAndReturn(listParams,fullPath);
 
-        List<V> def = new ArrayList<>(listParams.getDef());
+        List<V> def = listParams.getDef();
 
         if(!listParams.isCanBeEmpty() && primitiveList.isEmpty()){
             configUtil.logError(ConfigUtil.SECTION_EMPTY_ERROR, listParams.getEmptyErrorText(),fullPath,listParams.isLogErrors());
             return def;
         }
-        return new ArrayList<>(listCastValidator.validateList(primitiveList));
+        return listCastValidator.validateList(primitiveList);
 
     }
 }

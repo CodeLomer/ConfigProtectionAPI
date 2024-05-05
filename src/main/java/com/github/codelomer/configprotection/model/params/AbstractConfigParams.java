@@ -24,7 +24,6 @@ public abstract class AbstractConfigParams<V,C> {
 
     protected final List<FilterCondition<V>> customConditions = new ArrayList<>();
 
-    protected String notFoundPathError;
     protected String illegalArgumentInSectionError;
     protected boolean logErrors = true;
 
@@ -47,18 +46,6 @@ public abstract class AbstractConfigParams<V,C> {
      */
     public C setDef(@NonNull V def) {
         this.def = def;
-        return getThis();
-    }
-
-    /**
-     * Sets the custom error message for when the specified path is not found.
-     * @param notFoundPathError the error message to set
-     * @return subclass instance
-     */
-
-
-    public C setNotFoundPathError(@NonNull String notFoundPathError) {
-        this.notFoundPathError = notFoundPathError;
         return getThis();
     }
 

@@ -7,8 +7,8 @@ import com.github.codelomer.configprotection.validator.number.impl.DoubleLimitVa
 import com.github.codelomer.configprotection.validator.number.impl.IntegerLimitValidator;
 import com.github.codelomer.configprotection.validator.number.impl.LongLimitValidator;
 import com.github.codelomer.configprotection.util.ConfigUtil;
-import com.github.codelomer.configprotection.validator.number.NumberValidator;
-import com.github.codelomer.configprotection.validator.object.ObjectValidator;
+import com.github.codelomer.configprotection.validator.NumberValidator;
+import com.github.codelomer.configprotection.validator.ObjectValidator;
 import com.github.codelomer.configprotection.validator.object.impl.StringObjectCastValidator;
 import lombok.NonNull;
 

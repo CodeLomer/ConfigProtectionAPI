@@ -15,7 +15,7 @@ public class ConfigStringParams extends AbstractConfigParams<String,ConfigString
     private String emptyErrorText;
 
 
-    protected ConfigStringParams(@NonNull ConfigurationSection section, @NonNull String path) {
+    public ConfigStringParams(@NonNull ConfigurationSection section, @NonNull String path) {
         super(section, path);
     }
 

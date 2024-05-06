@@ -19,7 +19,7 @@ public class ConfigNumberParams<V extends Number> extends AbstractConfigParams<V
     private String maxLimitError;
 
 
-    protected ConfigNumberParams(@NonNull ConfigurationSection section, @NonNull String path) {
+    public ConfigNumberParams(@NonNull ConfigurationSection section, @NonNull String path) {
         super(section, path);
     }
 

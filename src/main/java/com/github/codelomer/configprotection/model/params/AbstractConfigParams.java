@@ -92,6 +92,7 @@ public abstract class AbstractConfigParams<V,C> {
         this.logErrors = logErrors;
         return getThis();
     }
+
     /**
      * Abstract method to get the subclass instance.
      * @return the subclass instance

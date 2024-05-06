@@ -18,7 +18,7 @@ public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigList
 
     private boolean canBeEmpty;
     private String emptyErrorText;
-    protected ConfigListParams(@NonNull ConfigurationSection section, @NonNull String path) {
+    public ConfigListParams(@NonNull ConfigurationSection section, @NonNull String path) {
         super(section, path);
     }
 

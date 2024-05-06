@@ -50,15 +50,4 @@ public class ConfigStringParams extends AbstractConfigParams<String,ConfigString
         this.emptyErrorText = emptyErrorText;
         return this;
     }
-
-    /**
-     * Static method to create a new instance of ConfigStringParams.
-     *
-     * @param section the configuration section to interact with
-     * @param path    the path within the configuration section
-     * @return a new instance of ConfigStringParams
-     */
-    public static ConfigStringParams builder(@NonNull ConfigurationSection section, @NonNull String path) {
-        return new ConfigStringParams(section, path);
-    }
 }

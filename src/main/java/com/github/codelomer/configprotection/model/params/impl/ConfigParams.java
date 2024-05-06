@@ -27,16 +27,4 @@ public class ConfigParams<V> extends AbstractConfigParams<V,ConfigParams<V>> {
     protected ConfigParams<V> getThis() {
         return this;
     }
-
-    /**
-     * Static method to create a new instance of ConfigParams.
-     *
-     * @param section the configuration section to interact with
-     * @param path    the path within the configuration section
-     * @param <V>     the type of data being validated and retrieved
-     * @return a new instance of ConfigParams
-     */
-    public static <V> ConfigParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path) {
-        return new ConfigParams<>(section, path);
-    }
 }

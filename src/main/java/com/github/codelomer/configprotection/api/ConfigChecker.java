@@ -318,7 +318,6 @@ public class ConfigChecker {
      * @param configParams An object storing data about the validating Enchantment.
      * @return The validated Enchantment value, or null if the validation fails and no default value is set.
      */
-
     public Enchantment checkEnchantmentByName(@NonNull ConfigParams<Enchantment> configParams){
         return bukkitValidator.checkEnchantmentByName(configParams);
     }

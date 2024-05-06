@@ -33,19 +33,6 @@ public class ConfigNumberParams<V extends Number> extends AbstractConfigParams<V
     protected ConfigNumberParams<V> getThis() {
         return this;
     }
-
-    /**
-     * Static method to create a new instance of ConfigNumberParams.
-     *
-     * @param section the configuration section to interact with
-     * @param path    the path within the configuration section
-     * @param <V>     the type of the number value
-     * @return a new instance of ConfigNumberParams
-     */
-    public static <V extends Number> ConfigNumberParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path) {
-        return new ConfigNumberParams<>(section, path);
-    }
-
     /**
      * Sets the minimum limit for the number value.
      *

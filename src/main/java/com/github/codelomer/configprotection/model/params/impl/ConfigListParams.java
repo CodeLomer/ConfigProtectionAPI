@@ -33,18 +33,6 @@ public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigList
     }
 
     /**
-     * Static method to create a new instance of ConfigListParams.
-     *
-     * @param section the configuration section to interact with
-     * @param path    the path within the configuration section
-     * @param <V>     the type of values in the list
-     * @return a new instance of ConfigListParams
-     */
-    public static <V> ConfigListParams<V> builder(@NonNull ConfigurationSection section, @NonNull String path) {
-        return new ConfigListParams<>(section, path);
-    }
-
-    /**
      * Sets whether the list can be empty.
      *
      * @param canBeEmpty flag indicating whether the list can be empty

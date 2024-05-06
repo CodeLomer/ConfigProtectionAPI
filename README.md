@@ -11,7 +11,7 @@ ConfigProtectionAPI is designed to make it easier to validate data from plugin f
 
 ## Quick links
 - [VK group](https://vk.com/plugincrafting)
-- [Javadocs](https://codelomer.github.io/ConfigProtectionAPI/)
+
 
 # API
 ## First steps

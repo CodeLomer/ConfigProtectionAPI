@@ -23,6 +23,7 @@ public class ConfigStringParams extends AbstractConfigParams<String,ConfigString
      * Overrides the abstract method to return the current instance.
      * @return the current instance
      */
+
     @Override
     protected ConfigStringParams getThis() {
         return this;

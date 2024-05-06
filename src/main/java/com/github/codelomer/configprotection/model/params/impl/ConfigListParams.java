@@ -50,6 +50,7 @@ public class ConfigListParams<V> extends AbstractConfigParams<List<V>,ConfigList
      * @param canBeEmpty flag indicating whether the list can be empty
      * @return the current instance for method chaining
      */
+
     public ConfigListParams<V> canBeEmpty(boolean canBeEmpty) {
         this.canBeEmpty = canBeEmpty;
         return this;

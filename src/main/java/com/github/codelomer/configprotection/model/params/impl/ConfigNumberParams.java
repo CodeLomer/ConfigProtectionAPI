@@ -28,6 +28,7 @@ public class ConfigNumberParams<V extends Number> extends AbstractConfigParams<V
      *
      * @return the current instance
      */
+
     @Override
     protected ConfigNumberParams<V> getThis() {
         return this;
